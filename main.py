@@ -8,13 +8,11 @@ import time
 #every second it goes 60 milimeters
 #In the top and botttom walls it runs into it if you spin and then dance
 #1.5 to spin 90 degrees
-#fix the drive around function because it runs into the walls or doesn't go far enough
-#how to have a call to functon assigned to a variable
 
 def sonar_dimensions(forwards, backwards):
     remainder = float(input("How many seconds would you like to go move? "))
     left_distance, right_distance = robot.sonars()
-    while remainder > 1:
+    while remainder > 0.5:
         left_distance, right_distance = robot.sonars()
         robot.motors(forwards, backwards, 0.1)
         remainder -= 0.1
@@ -125,6 +123,9 @@ def drive_around(spin):
         robot.motors(1, -1, spin)
         robot.motors(1, 1, 2.5)
     robot.motors(0, 0, 2)
+    robot.motors(1, -1, 1.5319148936170213)
+    robot.motors(1, 1, 0.45)
+    robot.motors(-1, 1, 1.5319148936170213)
     beginning()
 
 def beginning ():
